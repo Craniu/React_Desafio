@@ -1,0 +1,238 @@
+#root {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0%;
+    border-bottom: solid;
+}
+
+.navbar button {
+    margin-right: 20px;
+    border: none;
+    width: 80px;
+    height: 75px;
+    background-color: white;
+}
+
+.navbar button:hover {
+    background-color: lightgray;
+}
+
+.navbar button:active {
+    background-color: rgb(190, 190, 190);
+}
+
+.navbar h1 {
+    margin: 20px;
+    padding: 0%;
+}
+/* Fin Navbar */
+
+/* Main */
+main {
+    width: 100%;
+    min-height: 50vh;
+}
+
+/* Header */
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./assets/img/Header.jpg");
+    background-size: cover;
+    height: 300px;
+
+}
+
+.header h1 {
+    font-size: 40px;
+}
+
+.header p {
+    font-size: 20px;
+}
+
+.header hr {
+    width: 80%;
+    border: solid 1px white;
+}
+
+/* Fin Header*/
+
+.container {
+    margin: 0%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.containerCol {
+    margin: 20px;
+    text-align: center;
+}
+
+/* Card Pizza */
+.cardPizza {
+    width: 250px;
+    margin: 20px;
+    padding: auto;
+    text-align: center;
+    border: solid 1px gray;
+    border-radius: 10px;
+}
+
+.cardPizza img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.cardPizza h1 {
+    font-size: 1.4rem;
+    margin: 10px;
+}
+
+.cardPizza h2 {
+    font-size: 1.2rem;
+    margin: 10px;
+}
+
+.cardPizza p {
+    font-size: 0.8rem;
+}
+
+.cardPizza hr {
+    width: 90%;
+    margin: 0;
+    justify-self: center;
+}
+
+.ingredientes {
+    height: 120px;
+}
+
+.ingredientes h2 {
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.botonHeader {
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Fin CardPizza*/
+/* Fin Home */
+
+.footer {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* Formulario */
+form {
+    height: 100%;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px
+}
+
+/* Carrito */
+.cardCarrito {
+    display: flex;
+    margin: 10px;
+    padding: 0px 10px 0px 10px;
+    width: 100%;
+    background-color: rgb(218, 218, 218);
+    align-items: center;
+    justify-content: space-between;
+}
+.cardCarrito img {
+    height: 100px;
+    margin: 10px;
+}
+.cardCarrito h3 {
+    width: 50%;
+    text-align: left;
+}
+
+.msgCarrito {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+.payCarrito {
+    width: 80%;
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+
+/* Componente Pizza */
+.Pizza {
+    height: auto;
+    width: 250px;
+    margin: 20px;
+    padding: auto;
+    text-align: center;
+    border: solid 1px gray;
+    border-radius: 10px;
+}
+
+.Pizza img {
+    width: 90%;
+    border-radius: 10px;
+}
+
+.Pizza h1 {
+    font-size: 1.4rem;
+    margin: 10px;
+}
+
+.Pizza h2 {
+    font-size: 1.2rem;
+    margin: 10px;
+}
+
+.Pizza p {
+    font-size: 0.8rem;
+    padding: 5px;
+}
+
+.Pizza hr {
+    width: 90%;
+    margin: 0;
+    justify-self: center;
+}
+
+/* NotFound */
+.notFound {
+    text-align: center;
+    margin: 20px;
+    margin-bottom: 50px;
+}
