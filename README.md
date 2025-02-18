@@ -1,7 +1,7 @@
 # Desafio React Javascript
 ## "La Papaya Loca"
 
-Modulo React + Javascript
+Modulo React + Javascript.
 Proyecto Sitio Web pizzeria 
 
 
