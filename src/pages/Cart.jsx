@@ -1,43 +1,31 @@
-import { useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import {pizzaCart} from "../pizzas"
+import { CartContext } from "../contexts/cartContext";
 
 
 const Cart = () => {
 
-  const [listaPizzas, setListaPizzas] = useState(pizzaCart);
+  const {carrito, total, addCarrito, delCarrito} = useContext(CartContext);
 
-    const aumentarCantidad = (id) =>{
-      setListaPizzas((prevPizzas) =>
-        prevPizzas.map((pizza) =>
-          pizza.id === id ? { ...pizza, count: pizza.count + 1 } : pizza
-        )
-      );
-    };
 
-    const disminuirCantidad = (id) =>{
-      setListaPizzas((prevPizzas) => 
-        prevPizzas.map((pizza) => 
-          pizza.id === id? {...pizza, count: pizza.count - 1} : pizza
-        ).filter((pizza) => pizza.count > 0)
-    )
-    }
+  //Valido si el carrito esta vacio si todos los elementos tienen cantidad 0
+  const carritoVacio =  carrito.every((pizza => pizza.count === 0));
 
-    const total = listaPizzas.reduce((suma, pizza)=> suma + pizza.price * pizza.count,0);
 
-  return (
+   return (
     <>
     <div className="container">
     <h2>Carrito de compras</h2>
-      {listaPizzas.length === 0 ? (<div className="msgCarrito">El carrito esta vacio</div>): (
+      {carritoVacio ? (<div className="msgCarrito">El carrito esta vacio</div>): (
         <>
-        {listaPizzas.map((pizza) => (
+        {carrito.filter(pizza => pizza.count > 0).map((pizza) => (
           <div className="cardCarrito" key={pizza.id}>
             <img src={pizza.img}></img>
           <h3>{pizza.name}</h3>
           <p>${pizza.price * pizza.count}</p>
-          <button onClick={() => aumentarCantidad(pizza.id)}>+</button>
+          <button onClick={() => addCarrito(pizza.id)}>+</button>
           <p>{pizza.count}</p>
-          <button onClick={() => disminuirCantidad(pizza.id)}>-</button>
+          <button onClick={() => delCarrito(pizza.id)}>-</button>
           </div>
         ))}
         <div className="payCarrito">

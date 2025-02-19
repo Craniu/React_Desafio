@@ -9,11 +9,13 @@ import Pizza from "./pages/Pizza";
 import Cart from "./pages/Cart"
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
+import CartProvider from "./contexts/cartContext"
 
 const App = () => {
 
   return (
     <div>
+      <CartProvider>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}/>
@@ -24,6 +26,7 @@ const App = () => {
         <Route path="/*" element={<NotFound />}/>
         <Route path="/cart" element={<Cart />}/>
       </Routes>
+      </CartProvider>
       <Footer />
     </div>
   );

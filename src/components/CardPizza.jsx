@@ -1,6 +1,11 @@
-import Button from "react-bootstrap/Button";
+import { useContext } from "react";
+import { CartContext } from "../contexts/cartContext";
 
-const CardPizza = ({ name, price, ingredients, img }) => {
+
+const CardPizza = ({ name, price, ingredients, img, id }) => {
+  
+  const {addCarrito} = useContext(CartContext);
+  
   return (
     <div className="cardPizza">
       <img src={img}></img>
@@ -19,6 +24,7 @@ const CardPizza = ({ name, price, ingredients, img }) => {
       </div>
       <hr />
       <h1>Precio: ${price}</h1>
+      <button onClick={()=>addCarrito(id)}>Agregar</button>
     </div>
   );
 };
