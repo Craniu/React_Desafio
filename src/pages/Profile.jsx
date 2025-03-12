@@ -1,15 +1,19 @@
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../contexts/userContext";
 
 const Profile = () => {
 
-  const {logout} = useContext(UserContext);
+  const {logout, perfil, obtenerPerfil} = useContext(UserContext);
+
+  useEffect(()=>{
+    obtenerPerfil();
+  },[])
 
   return (
     <>
     <div className="containerCol">
-    <div>Profile</div>
-        <p>MiCorreo@servidor.cl</p>
+    <div>Profile {perfil.id}</div>
+        <p>{perfil.email}</p>
         <button onClick={()=>logout()}>Cerrar Sesion</button>
     </div>
     </>

@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { UserContext } from "../contexts/userContext";
 
 const Login = () => {
   const [mail, setMail] = useState("");
   const [pass, setPass] = useState("");
+  const { login } = useContext(UserContext);
 
   const validacion = (e) => {
     e.preventDefault();
     if (pass.length < 6) {
       alert("La contraseña de tener al menos 6 digitos");
     } else {
-      alert("Validación realizada");
-      setMail("");
-      setPass("");
+      login(mail, pass);
     }
   };
 

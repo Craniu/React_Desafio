@@ -1,19 +1,16 @@
-import React, { useContext, useEffect } from 'react'
-import { UserContext } from '../contexts/userContext'
-import { useNavigate } from 'react-router-dom';
-
-const ProtectedRoute = ({children}) => {
-
-    const navigate = useNavigate();
-    const {token} = useContext(UserContext);
+import React, { useContext} from "react";
+import { UserContext } from "../contexts/userContext";
+import { Navigate } from "react-router-dom";
 
 
-    if(!token){
-        navigate("/login")
-    }else{
-    return(
-        <div>{children}</div>
-    )}
-}
+const ProtectedRoute = ({ children }) => {
+  const { user } = useContext(UserContext);
 
-export default ProtectedRoute
+  if (!user.token) {
+    return <Navigate to="/login" replace />
+  } else {
+    return <div>{children}</div>;
+  }
+};
+
+export default ProtectedRoute;

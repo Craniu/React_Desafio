@@ -2,16 +2,36 @@ import { useContext, useEffect, useState } from "react"
 import {pizzaCart} from "../pizzas"
 import { CartContext } from "../contexts/cartContext";
 import { UserContext } from "../contexts/userContext";
+import axios from "axios";
 
 
 const Cart = () => {
 
   const {carrito, total, addCarrito, delCarrito} = useContext(CartContext);
-  const {token} = useContext(UserContext);
-
+  const {user} = useContext(UserContext);
 
   //Valido si el carrito esta vacio si todos los elementos tienen cantidad 0
   const carritoVacio =  carrito.every((pizza => pizza.count === 0));
+
+  //Enviar carrito
+  const comprar = async () => {
+    if(total > 0){
+    try {
+    const URL = "http://localhost:5000/api/checkouts";
+    const headers = {
+      headers : {
+        Authorization: `Bearer ${user.token}`
+      }
+    };
+      const response = await axios.post(URL,{carrito},headers );
+      alert(response.data.message+"(compra realizada con exito)");
+    } catch (error) {
+      alert("Error al realizar la compra!");
+    }
+  }else{
+    alert("Debe tener almenos 1 producto en el carrito")
+  }
+  };
 
 
    return (
@@ -32,7 +52,7 @@ const Cart = () => {
         ))}
         <div className="payCarrito">
           <p>Total: ${total}</p>
-          <button disabled={!token}>Pagar</button>
+          <button disabled={!user.token} onClick={()=>comprar()}>Pagar</button>
           
         </div>
         </>

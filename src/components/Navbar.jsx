@@ -7,8 +7,7 @@ const Navbar = () => {
 
 const {total} = useContext(CartContext);
 
-const {token,logout} = useContext(UserContext);
-console.log(token)
+const {user,logout} = useContext(UserContext);
 
   return (
     <div className="navbar">
@@ -19,10 +18,10 @@ console.log(token)
       </Link>
       <div>
         <Link to="/"><button>Home</button></Link>
-        {!token? <Link to="/login"><button>Login</button></Link> : null} 
-        {!token ?<Link to="/register"><button>Register</button></Link>:null}
-        {token? <Link to="/profile"><button>Profile</button></Link>:null}
-        {token? <button onClick={()=>logout()}>Logout</button>:null}
+        {!user.token? <Link to="/login"><button>Login</button></Link> : null} 
+        {!user.token ?<Link to="/register"><button>Register</button></Link>:null}
+        {user.token? <Link to="/profile"><button>Profile</button></Link>:null}
+        {user.token? <button onClick={()=>logout()}>Logout</button>:null}
 
         <Link to="/cart">
         <button >
