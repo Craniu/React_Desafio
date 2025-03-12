@@ -3,8 +3,6 @@ import CardPizza from "../components/CardPizza";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../contexts/cartContext";
 
-
-
 const Home = () => {
 
   const {carrito} = useContext(CartContext);
@@ -22,7 +20,7 @@ const Home = () => {
             ingredients={pizzas.ingredients}
             name={pizzas.name}
             price={pizzas.price}
-            />
+              />
             ))}
 
       </div>

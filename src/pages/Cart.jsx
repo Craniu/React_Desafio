@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from "react"
 import {pizzaCart} from "../pizzas"
 import { CartContext } from "../contexts/cartContext";
+import { UserContext } from "../contexts/userContext";
 
 
 const Cart = () => {
 
   const {carrito, total, addCarrito, delCarrito} = useContext(CartContext);
+  const {token} = useContext(UserContext);
 
 
   //Valido si el carrito esta vacio si todos los elementos tienen cantidad 0
@@ -30,7 +32,8 @@ const Cart = () => {
         ))}
         <div className="payCarrito">
           <p>Total: ${total}</p>
-          <button>Pagar</button>
+          <button disabled={!token}>Pagar</button>
+          
         </div>
         </>
       )}

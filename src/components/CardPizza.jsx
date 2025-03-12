@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { CartContext } from "../contexts/cartContext";
+import { useNavigate } from "react-router-dom";
 
 
 const CardPizza = ({ name, price, ingredients, img, id }) => {
   
+  const navigate = useNavigate();
   const {addCarrito} = useContext(CartContext);
   
   return (
@@ -25,6 +27,7 @@ const CardPizza = ({ name, price, ingredients, img, id }) => {
       <hr />
       <h1>Precio: ${price}</h1>
       <button onClick={()=>addCarrito(id)}>Agregar</button>
+      <button onClick={()=>navigate(`/pizza/${id}`)}>Detalles</button>
     </div>
   );
 };
